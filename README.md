@@ -1,15 +1,19 @@
-一个简单的LiteSignin插件的变量拓展插件
+# LiteSignIn-Extension
+> ✨ 轻量级 LiteSignin 变量拓展插件
+> 🎯 为LiteSignIn签到GUI提供分页年月变量支持，实现签到日历上下页年份、月份精准调用
 
-注意:该项目是 插件 不是PlaceholderAPI的拓展
-注意:该项目是 插件 不是PlaceholderAPI的拓展
-注意:该项目是 插件 不是PlaceholderAPI的拓展
+## 📋 插件介绍
+本插件为**独立运行的拓展插件**，核心作用是为 LiteSignIn 签到插件补充4个专属分页年月变量，让CraftEngine ItemsAdder 等插件，更好的覆盖「上一页/下一页」的年份与月份，轻松实现签到日历分页的可视化适配。
+> ✅ 搭配PAPI-JS拓展可实现大小月闰年平年的界面材质覆盖
 
-提供四个个变量获取上一页/下一页的年份与月份
-  %litesignext_lastyear% 上一页年份
-  %litesignext_lastmonth% 上一页月份
-  %litesignext_nextyear% 下一页年份
-  %litesignext_nextmonth% 下一页月份
+### ✅ 依赖插件
+LiteSignin
+PlaceholderAPI
 
-注意该插件主要目的为让CE IA等插件可以更好的覆盖LiteSignIn的GUI界面
-Tip:可通过PlaceholderAPI的JavaScript拓展模块进行判断年份与月份返回不同的界面占位符达到最佳效果
-
+## ✨ 核心变量列表
+| 变量标识                | 变量功能               | 示例结果 |
+|:---------------------- |:--------------------- |:------- |
+| `%litesignext_lastyear%`  | 获取签到上一页的年份   | 2025     |
+| `%litesignext_lastmonth%` | 获取签到上一页的月份   | 12       |
+| `%litesignext_nextyear%`  | 获取签到下一页的年份   | 2026     |
+| `%litesignext_nextmonth%` | 获取签到下一页的月份   | 1        |
