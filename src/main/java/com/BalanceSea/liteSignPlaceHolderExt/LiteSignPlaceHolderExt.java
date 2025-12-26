@@ -21,38 +21,28 @@ public final class LiteSignPlaceHolderExt extends JavaPlugin implements Listener
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        signInDays.clear();
     }
 
     @EventHandler
     public void onPlayerOpenGui(SignInGUIOpenEvent event){
-        int month = event.getInventory().getPreviousPageMonth();
+        int LastMonth = event.getInventory().getPreviousPageMonth();
 
-        int year = event.getInventory().getPreviousPageYear();
+        int LastYear = event.getInventory().getPreviousPageYear();
 
-        Ext ext = new Ext(year,month);
+        int NextMonth = event.getInventory().getNextPageMonth();
+
+        int NextYear = event.getInventory().getNextPageYear();
+
+        Ext ext = new Ext(LastYear,LastMonth,NextYear,NextMonth);
 
         Player player = event.getPlayer();
 
         signInDays.put(player.getUniqueId(),ext);
 
-        //getLogger().info(ext.toString());
-
-        //getLogger().info(signInDays.toString());
     }
 
-/**
- * 处理玩家关闭GUI界面的事件
- * 当玩家关闭签到GUI时，从签到天数记录中移除该玩家的记录
- *
 
-    @EventHandler
-    public void onPlayerCloseGui(SignInGUICloseEvent event){
-    // 从签到天数记录中移除触发事件的玩家
-    // 使用玩家的唯一标识符(UUID)作为键来移除对应的记录
-        signInDays.remove(event.getPlayer().getUniqueId());
-    }
- */
     public static Ext getExt(Player player){
         return signInDays.get(player.getUniqueId());
     }

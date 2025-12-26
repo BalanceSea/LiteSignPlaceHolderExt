@@ -38,22 +38,17 @@ public class PlaceHolderHook extends PlaceholderExpansion {
     @Override
     public String onPlaceholderRequest(Player player,@NotNull String params){
 
-        if (params.equalsIgnoreCase("year")){
-            Ext ext = LiteSignPlaceHolderExt.getExt(player);
-            if (ext != null) {
-                return String.valueOf(ext.getYear());
-            }
-            //Bukkit.getLogger().info("获取年时ext类为null");
-            return "";
+        Ext ext = LiteSignPlaceHolderExt.getExt(player);
+        if (ext != null) {
+            return switch (params.toLowerCase()) {
+                case "lastyear" -> String.valueOf(ext.getLastYear());
+                case "lastmonth" -> String.valueOf(ext.getLastMonth());
+                case "nextyear" -> String.valueOf(ext.getNextYear());
+                case "nextmonth" -> String.valueOf(ext.getNextMonth());
+                default -> "";
+            };
         }
-        if (params.equalsIgnoreCase("month")) {
-            Ext ext = LiteSignPlaceHolderExt.getExt(player);
-            if (ext != null) {
-                return String.valueOf(ext.getMonth());
-            }
-            //Bukkit.getLogger().info("获取月时ext类为null");
-            return "";
-        }
+
         if (params.equalsIgnoreCase("test")) {
             return "2025-12-26";
         }
