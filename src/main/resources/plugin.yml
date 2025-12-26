@@ -1,0 +1,7 @@
+name: LiteSignPlaceHolderExt
+version: '1.0-SNAPSHOT'
+main: com.BalanceSea.liteSignPlaceHolderExt.LiteSignPlaceHolderExt
+api-version: '1.20'
+depend:
+  - PlaceholderAPI
+  - LiteSignIn
